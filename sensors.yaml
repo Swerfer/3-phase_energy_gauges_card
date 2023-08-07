@@ -1,0 +1,47 @@
+- platform: template
+  sensors:
+    current_power_phase_1:
+      unique_id: "1234567890102"
+      friendly_name: "Current power phase 1"
+      unit_of_measurement: kW
+      value_template: >
+        {% set consumed = states('sensor.power_consumed_phase_1') | float %}
+        {% set produced = states('sensor.power_produced_phase_1') | float %}
+        {{ (0 - produced + consumed) | float }}
+      icon_template: mdi:lightning-bolt
+
+- platform: template
+  sensors:
+    current_power_phase_2:
+      unique_id: "1234567890103"
+      friendly_name: "Current power phase 2"
+      unit_of_measurement: kW
+      value_template: >
+        {% set consumed = states('sensor.power_consumed_phase_2') | float %}
+        {% set produced = states('sensor.power_produced_phase_2') | float %}
+        {{ (0 - produced + consumed) | float }}
+      icon_template: mdi:lightning-bolt
+
+- platform: template
+  sensors:
+    current_power_phase_3:
+      unique_id: "1234567890104"
+      friendly_name: "Current power phase 3"
+      unit_of_measurement: kW
+      value_template: >
+        {% set consumed = states('sensor.power_consumed_phase_3') | float %}
+        {% set produced = states('sensor.power_produced_phase_3') | float %}
+        {{ (0 - produced + consumed) | float }}
+      icon_template: mdi:lightning-bolt
+
+- platform: template
+  sensors:
+    current_power:
+      unique_id: "1234567890105"
+      friendly_name: "Current power"
+      unit_of_measurement: kW
+      value_template: >
+        {% set consumed = states('sensor.power_consumed') | float %}
+        {% set produced = states('sensor.power_produced') | float %}
+        {{ (0 - produced + consumed) | float }}
+      icon_template: mdi:lightning-bolt
